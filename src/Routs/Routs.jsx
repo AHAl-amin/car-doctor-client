@@ -3,6 +3,7 @@ import Main from "../Layout/Main";
 import Home from "../pages/Home";
 import Footer from "../Shared/Footer";
 import Nabver from "../Shared/Nabver";
+import Login from "../pages/Login";
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
         {
           path:'/navber',
           element:<Nabver></Nabver>
+        },
+        {
+          path:"/login",
+          element:<Login></Login>
         }
       ]
     },
