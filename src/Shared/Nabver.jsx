@@ -1,11 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 
 import logo from '../assets/logo.svg'
-'
+
 const Nabver = () => {
     const navitems =<>
     <li><NavLink to="/">Home</NavLink></li>
-    {/* <li><NavLink to="/">About</NavLink></li> */}
+    <li><NavLink to="/signup">Sign up</NavLink></li>
     <li><NavLink to="/login">Login</NavLink></li>
     
     </>

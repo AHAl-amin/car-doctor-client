@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Footer from "../Shared/Footer";
 import Nabver from "../Shared/Nabver";
 import Login from "../pages/Login";
+import SignUp from "../pages/SignUp";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,9 @@ const router = createBrowserRouter([
         {
           path:"/login",
           element:<Login></Login>
+        },{
+          path:"/signup",
+          element:<SignUp></SignUp>
         }
       ]
     },
