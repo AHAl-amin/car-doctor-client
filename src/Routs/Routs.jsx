@@ -5,6 +5,7 @@ import Footer from "../Shared/Footer";
 import Nabver from "../Shared/Nabver";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
+import CheckOut from "../pages/CheckOut";
 
 const router = createBrowserRouter([
     {
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
         },{
           path:"/signup",
           element:<SignUp></SignUp>
+        },
+        {
+          path:"checkout/:id",
+          element:<CheckOut></CheckOut>,
+          loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
         }
       ]
     },
