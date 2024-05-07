@@ -1,27 +1,14 @@
 import React from 'react';
 
-const BookingRow = ({ booking }) => {
-    const {_id, customerName, email, date, service, price, img } = booking;
-    const handleDelete = id =>{
-        const process = confirm('are you sure want to delete')
-        if(process){
+const BookingRow = ({ booking, handleDelete, handleConfirm }) => {
+    const { _id, customerName, email, date, service, price, img ,status} = booking;
 
-            fetch(`http://localhost:5000/bookings/${id}`,{
-               method:'DELETE' 
-            })
-            .then(res => res.json())
-            .then(data =>{
-                console.log(data)
-                if(data.deletedCount > 0){
-                    alert('deleted successfully')
-                }
-            })
-        }
-    }
+
+
     return (
         <tr>
             <th>
-                <button onClick={() =>handleDelete(_id)} className="btn btn-sm btn-circle btn-outline">
+                <button onClick={() => handleDelete(_id)} className="btn btn-sm btn-circle btn-outline">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                 </button>
             </th>
@@ -50,7 +37,12 @@ const BookingRow = ({ booking }) => {
 
             </td>
             <th>
-                <button className="btn btn-ghost btn-xs">details</button>
+                {
+                    status === 'confirm' ? <span className='text-2xl font-bold text-blue-500'>confirmed</span> 
+                     :
+
+                    <button onClick={() => handleConfirm(_id)} className="btn btn-ghost btn-xs">please Confirm</button>
+                }
             </th>
         </tr>
     );
