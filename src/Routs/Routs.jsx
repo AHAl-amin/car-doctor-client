@@ -6,6 +6,9 @@ import Nabver from "../Shared/Nabver";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import CheckOut from "../pages/CheckOut";
+import Bookings from "../pages/Bookings";
+import PrivetRouts from "../pages/PrivetRouts";
+
 
 const router = createBrowserRouter([
     {
@@ -35,6 +38,10 @@ const router = createBrowserRouter([
           path:"checkout/:id",
           element:<CheckOut></CheckOut>,
           loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+        },
+        {
+          path:"bookings",
+          element:<PrivetRouts><Bookings></Bookings></PrivetRouts>
         }
       ]
     },
