@@ -10,6 +10,7 @@ import Bookings from "../pages/Bookings";
 import PrivetRouts from "../pages/PrivetRouts";
 
 
+
 const router = createBrowserRouter([
     {
       path: "/",
@@ -36,13 +37,14 @@ const router = createBrowserRouter([
         },
         {
           path:"checkout/:id",
-          element:<CheckOut></CheckOut>,
+          element:<PrivetRouts><CheckOut></CheckOut></PrivetRouts>,
           loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
         },
         {
           path:"bookings",
           element:<PrivetRouts><Bookings></Bookings></PrivetRouts>
         }
+       
       ]
     },
   ]);
